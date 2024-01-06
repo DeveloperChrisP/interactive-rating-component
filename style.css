@@ -1,0 +1,224 @@
+
+
+/* Josh's Custom CSS Reset
+https://www.joshwcomeau.com/css/custom-css-reset/ */
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding:0;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+  font-weight: inherit;
+  background-color: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* Custom attribute */
+:root{
+  /* Colours */
+  --Colour-mainButton:hsl(25, 97%, 53%); 
+  --Colour-headingText:hsl(0, 0%, 100%);
+  --Colour-standardText:hsl(217, 12%, 63%);  
+  --Colour-activeButton:hsl(216, 12%, 54%);  
+  --Colour-card:hsl(213, 19%, 13%);
+  --Colour-buttons:hsl(213, 19%, 18%);
+  --Colour-background:hsl(216, 12%, 8%); 
+
+  /* Fonts */
+  --defaultFontSize:0.83rem;
+  /* --smallFontSize:calc(var(--defaultFontSize)/1.40625); font-size:0.8rem; */
+  --fontDefault:'Overpass', sans-serif;
+  --fontweight-large:700;
+  --fontweight-medium:400;
+  /* --fontweight-small:500; */
+
+  /* Padding & Margin */
+  --defaultMargin:2rem;
+  --defaultPadding:1.5rem;
+}
+.attribution { font-size: 0.688rem; text-align: center; }
+.attribution a {color:var(--Colour-mainButton); }
+.attribution p {color:var(--Colour-headingText);}
+body {
+  line-height: 1.5;
+  
+  -webkit-font-smoothing: antialiased;
+  
+  font-family: var(--fontDefault);
+  font-size:var(--defaultFontSize); 
+  background-color: var(--Colour-background); 
+  font-weight: var(--fontweight-medium);
+  color:var(--Colour-standardText);
+   
+}
+
+main {
+    
+    min-height:calc(100vh - 1.031rem);
+    display:grid;
+    place-content: center;
+}
+
+/* Question phase */
+.survey {
+    display:flex;
+    flex-direction: column;
+    margin:0 calc(var(--defaultMargin)*0.8);
+    padding:calc(var(--defaultPadding)*1);
+    background-color: var(--Colour-card);
+    border-radius: 1rem;
+    gap:var(--defaultPadding)
+}
+.buttonCircles {
+    background-color: var(--Colour-buttons);
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    width: 2.5rem;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+img {
+    position: relative;
+    height: 0.8rem;
+}
+h1,h2 {
+    color: var(--Colour-headingText);
+    line-height: 0;
+    margin-top: calc(var(--defaultMargin)/2);
+    font-weight: var(--fontweight-large);
+}
+ol {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    
+}
+button {
+    border:none;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+button.submitButton {
+  background-color: var(--Colour-mainButton);
+  border-radius: 2rem;
+  color:var(--Colour-headingText);
+  text-transform:uppercase;
+  padding:calc(var(--defaultPadding)/2);
+  margin-bottom: calc(var(--defaultMargin)/2);
+  font-weight: var(--fontweight-large);
+}
+
+
+/* Hover states */
+button:is(:hover,:focus){
+  cursor: pointer;
+  background-color: var(--Colour-mainButton);
+  color: var(--Colour-headingText);
+}
+button.submitButton:is(:hover,:focus){
+  cursor: pointer;
+  background-color: var(--Colour-headingText);
+  color: var(--Colour-mainButton);
+}
+
+/* Answer phase */
+#answer {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding:2.5rem 1rem;
+}
+
+#answer img {
+  height:6rem;
+  width: auto;
+  }
+.bubbleHousing {
+  background-color: var(--Colour-buttons);
+  padding: calc(var(--defaultPadding)*0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: bottom;
+  border-radius: 1rem;
+}
+.bubbleHousing p {
+  height: var(--defaultFontSize);
+  line-height: 1.1rem;
+  color: var(--Colour-mainButton);
+}
+
+h2 {
+  font-size: calc(var(--defaultFontSize)*1.8);
+}
+
+/* Desktop responsiveness */
+
+@media (width > 400px){
+ 
+  article{
+    max-width: 440px;
+  }
+  :root{
+     
+    /* Fonts */
+    --defaultFontSize:0.938rem;
+    /* --smallFontSize:calc(var(--defaultFontSize)/1.40625); font-size:0.8rem; */
+    --fontDefault:'Overpass', sans-serif;
+    --fontweight-large:700;
+    --fontweight-medium:400;
+    /* --fontweight-small:500; */
+  
+    /* Padding & Margin */
+    --defaultMargin:1rem;
+    --defaultPadding:2rem;
+}
+h1 {
+  font-size: 1.7rem;
+  margin-top: 1rem;
+  
+}
+.buttonCircles {
+  width:3.2rem;
+}
+button.submitButton {
+  padding: calc(var(--defaultPadding)/3);
+}
+.survey {
+  gap:1.8rem;
+}
+}
+
+
+/* javascript classes */
+
+/* visibility for Question & Answer */
+.invisible {
+  display:none;
+}
+
+
+/* selected button */
+#selected {
+  background-color: var(--Colour-activeButton);
+  color: var(--Colour-headingText);
+  font-weight: var(--fontweight-large);
+}
